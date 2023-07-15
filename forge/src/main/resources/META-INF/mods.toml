@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[46,)"
 #issueTrackerURL = ""
 license = "ARR"
 
@@ -16,7 +16,7 @@ logoFile = "pack.png"
 [[dependencies.beachparty]]
 modId = "forge"
 mandatory = true
-versionRange = "[47,)"
+versionRange = "[46,)"
 ordering = "NONE"
 side = "BOTH"
 

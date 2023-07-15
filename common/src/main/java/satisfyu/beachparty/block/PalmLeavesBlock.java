@@ -4,6 +4,7 @@ package satisfyu.beachparty.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.LevelAccessor;
@@ -14,7 +15,10 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import org.jetbrains.annotations.NotNull;
 import satisfyu.beachparty.registry.ObjectRegistry;
+
+import java.util.OptionalInt;
 
 
 public class PalmLeavesBlock extends LeavesBlock {
@@ -92,16 +96,15 @@ public class PalmLeavesBlock extends LeavesBlock {
     }
 
 
-    private static int getDistanceAt(BlockState pNeighbor) {
-        Block block = pNeighbor.getBlock();
-        if (block == ObjectRegistry.PALM_LOG.get()) {
-            return 9;
-        } else if (block instanceof PalmLeavesBlock) {
-            return pNeighbor.getValue(DISTANCE_9);
-        } else if (pNeighbor.getBlock() == ObjectRegistry.PALM_LOG.get()) {
-            return 0;
+    private static int getDistanceAt(BlockState blockState) {
+        return getOptionalDistanceAt(blockState).orElse(9);
+    }
+
+    public static @NotNull OptionalInt getOptionalDistanceAt(BlockState blockState) {
+        if (blockState.is(BlockTags.LOGS)) {
+            return OptionalInt.of(0);
         } else {
-            return 9;
+            return blockState.hasProperty(DISTANCE_9) ? OptionalInt.of(blockState.getValue(DISTANCE_9)) : OptionalInt.empty();
         }
     }
 }

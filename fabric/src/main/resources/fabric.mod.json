@@ -19,7 +19,7 @@
       "satisfyu.beachparty.fabric.BeachpartyFabric"
     ],
     "client": [
-      "satisfyu.beachparty.fabriclike.client.BeachpartyFabricLikeClient"
+      "satisfyu.beachparty.fabric.client.BeachpartyFabricClient"
     ],
     "doapi": [
       "satisfyu.beachparty.util.api.BeachPatyDoAPI"

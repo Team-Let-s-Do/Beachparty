@@ -58,38 +58,38 @@ public class PalmLeavesBlock extends LeavesBlock {
     }
 
     @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        pLevel.setBlock(pPos, updateDistance(pState, pLevel, pPos), 3);
-    }
-
-    @Override
     public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-        if (pState.getValue(WATERLOGGED)) {
-            pLevel.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
+        if (pState.getValue(DISTANCE_9) == 9 && pFacingState.getBlock() != this && pFacing != null && pFacing.getAxis().isHorizontal()) {
+            return pState.setValue(DISTANCE_9, pState.getValue(DISTANCE_9) - 1);
+        } else {
+            return super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
         }
-
-        int i = getDistanceAt(pFacingState) + 1;
-        if (i != 1 || pState.getValue(DISTANCE_9) != i) {
-            pLevel.scheduleTick(pCurrentPos, this, 1);
-        }
-
-        return pState;
     }
 
     private static BlockState updateDistance(BlockState pState, LevelAccessor pLevel, BlockPos pPos) {
         int i = 9;
         BlockPos.MutableBlockPos blockpos$autocloseable = new BlockPos.MutableBlockPos();
 
-        for(Direction direction : Direction.values()) {
+        for (Direction direction : Direction.values()) {
             blockpos$autocloseable.setWithOffset(pPos, direction);
-            i = Math.min(i, getDistanceAt(pLevel.getBlockState(blockpos$autocloseable)) + 1);
-            if (i == 1) {
-                break;
+            BlockState neighborState = pLevel.getBlockState(blockpos$autocloseable);
+
+            if (neighborState.getBlock() == ObjectRegistry.PALM_LOG.get()) {
+                return pState.setValue(DISTANCE_9, 9);
+            }
+
+            if (neighborState.getBlock() instanceof PalmLeavesBlock) {
+                i = Math.min(i, neighborState.getValue(DISTANCE_9) + 1);
+
+                if (i == 1) {
+                    break;
+                }
             }
         }
 
         return pState.setValue(DISTANCE_9, i);
     }
+
 
 
     private static int getDistanceAt(BlockState pNeighbor) {

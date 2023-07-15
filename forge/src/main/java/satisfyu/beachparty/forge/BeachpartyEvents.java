@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import satisfyu.beachparty.Beachparty;
 import satisfyu.beachparty.forge.registry.VillagersForge;
 import satisfyu.beachparty.registry.ObjectRegistry;
+import satisfyu.beachparty.util.BeachpartyVillagerUtil;
 
 import java.util.List;
 
@@ -33,8 +34,11 @@ public class BeachpartyEvents {
     private static void addBarkeeperTrades(Int2ObjectMap<List<VillagerTrades.ItemListing>> trades){
         //level 1
         List<VillagerTrades.ItemListing> level1 = trades.get(1);
-        level1.add(new VillagerTrades.EmeraldForItems(Blocks.ICE, 1, 2, 5));
-        level1.add(new VillagerTrades.EmeraldForItems(Items.SNOWBALL, 1, 2, 5));
+        level1.add(new BeachpartyVillagerUtil.SellItemFactory(Blocks.ICE, 1, 2, 5));
+        level1.add(new BeachpartyVillagerUtil.SellItemFactory(Items.SNOWBALL, 1, 8, 5));
+        level1.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(Items.WATER_BUCKET, 12, 1, 5));
+        level1.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(Items.POWDER_SNOW_BUCKET, 12, 1, 5));
+
         //level 2
         List<VillagerTrades.ItemListing> level2 = trades.get(2);
 
@@ -51,10 +55,10 @@ public class BeachpartyEvents {
     private static void addBeachGuyTrades(Int2ObjectMap<List<VillagerTrades.ItemListing>> trades){
         //level 1
         List<VillagerTrades.ItemListing> level1 = trades.get(1);
-        level1.add(new VillagerTrades.EmeraldForItems(ObjectRegistry.SUNGLASSES.get(), 18, 1, 5));
-        level1.add(new VillagerTrades.EmeraldForItems(ObjectRegistry.BIKINI.get(), 12, 1, 5));
-        level1.add(new VillagerTrades.EmeraldForItems(ObjectRegistry.TRUNKS.get(), 8, 1, 5));
-        level1.add(new VillagerTrades.EmeraldForItems(ObjectRegistry.SWIM_WINGS.get(), 5, 1, 5));
+        level1.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.SUNGLASSES.get(), 18, 1, 5));
+        level1.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.BIKINI.get(), 12, 1, 5));
+        level1.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.TRUNKS.get(), 8, 1, 5));
+        level1.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.SWIM_WINGS.get(), 5, 1, 5));
 
         //level 2
         List<VillagerTrades.ItemListing> level2 = trades.get(2);

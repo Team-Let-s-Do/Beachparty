@@ -62,9 +62,11 @@ remapJar {
 
 jar {
     archiveClassifier.set("dev")
+    archiveFileName = "letsdo-beachparty-forge-${project.version}"
 }
 
 sourcesJar {
+
     def commonSources = project(":common").sourcesJar
     dependsOn commonSources
     from commonSources.archiveFile.map { zipTree(it) }

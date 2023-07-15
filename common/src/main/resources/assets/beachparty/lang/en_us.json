@@ -137,5 +137,6 @@
   "item.beachparty.boat": "Test Item",
   "item.beachparty.chocolate_icecream": "Chocolate Sundae",
   "rei.beachparty.mini_fridge_category": "Mini Fridge",
-  "rei.beachparty.tiki_bar_category": "Tiki Bar"
+  "rei.beachparty.tiki_bar_category": "Tiki Bar",
+  "entity.minecraft.villager.beachparty.beach_guy": "Beachboy"
 }

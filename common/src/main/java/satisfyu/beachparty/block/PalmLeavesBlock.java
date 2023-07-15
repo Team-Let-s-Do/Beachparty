@@ -104,7 +104,7 @@ public class PalmLeavesBlock extends LeavesBlock {
             return 9;
         } else if (block instanceof PalmLeavesBlock) {
             return pNeighbor.getValue(DISTANCE_9);
-        } else if (pNeighbor.getMapColor(BlockGetter.traverseBlocks) == Tag.) {
+        } else if (pNeighbor.getBlock() == ObjectRegistry.PALM_LOG.get()) {
             return 0;
         } else {
             return 9;

@@ -33,15 +33,17 @@ public class VillagersFabric {
     
     public static void init() {
         TradeOfferHelper.registerVillagerOffers(BEACH_GUY, 1, factories -> {
-            factories.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(ObjectRegistry.SUNGLASSES.get(), 1, 18, 5));
-            factories.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(ObjectRegistry.BIKINI.get(), 1, 12, 5));
-            factories.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(ObjectRegistry.TRUNKS.get(), 1, 8, 5));
-            factories.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(ObjectRegistry.SWIM_WINGS.get(), 1, 5, 5));
+            factories.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.SUNGLASSES.get(), 18, 1, 5));
+            factories.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.BIKINI.get(), 12, 1, 5));
+            factories.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.TRUNKS.get(), 8, 1, 5));
+            factories.add(new BeachpartyVillagerUtil.SellItemFactory(ObjectRegistry.SWIM_WINGS.get(), 5, 1, 5));
         });
 
             TradeOfferHelper.registerVillagerOffers(BARKEEPER, 1, factories -> {
-            factories.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(Blocks.ICE, 2, 4, 5));
-            factories.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(Items.SNOWBALL, 8, 4, 5));
+                factories.add(new BeachpartyVillagerUtil.SellItemFactory(Blocks.ICE, 1, 2, 5));
+                factories.add(new BeachpartyVillagerUtil.SellItemFactory(Items.SNOWBALL, 1, 8, 5));
+                factories.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(Items.WATER_BUCKET, 12, 1, 5));
+                factories.add(new BeachpartyVillagerUtil.BuyForOneEmeraldFactory(Items.POWDER_SNOW_BUCKET, 12, 1, 5));
         });
 
         VillagerType.BY_BIOME.put(ResourceKey.create(Registries.BIOME, new ResourceLocation("beach")), BEACH);

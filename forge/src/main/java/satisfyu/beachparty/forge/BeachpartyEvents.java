@@ -3,7 +3,6 @@ package satisfyu.beachparty.forge;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,13 +13,12 @@ import satisfyu.beachparty.registry.ObjectRegistry;
 
 import java.util.List;
 
-public class ModEvents {
+public class BeachpartyEvents {
 
     @Mod.EventBusSubscriber(modid = Beachparty.MOD_ID)
     public static class ForgeEvents {
         @SubscribeEvent
         public static void addCustomTrades(VillagerTradesEvent event){
-            /*
             if(event.getType().equals(VillagersForge.BARKEEPER.get())){
                 Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
                 addBarkeeperTrades(trades);
@@ -29,8 +27,6 @@ public class ModEvents {
                 Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
                 addBeachGuyTrades(trades);
             }
-
-             */
         }
     }
 
@@ -38,7 +34,7 @@ public class ModEvents {
         //level 1
         List<VillagerTrades.ItemListing> level1 = trades.get(1);
         level1.add(new VillagerTrades.EmeraldForItems(Blocks.ICE, 1, 2, 5));
-
+        level1.add(new VillagerTrades.EmeraldForItems(Items.SNOWBALL, 1, 2, 5));
         //level 2
         List<VillagerTrades.ItemListing> level2 = trades.get(2);
 

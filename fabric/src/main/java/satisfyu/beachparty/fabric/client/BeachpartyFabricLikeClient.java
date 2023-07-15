@@ -1,4 +1,4 @@
-package satisfyu.beachparty.fabriclike.client;
+package satisfyu.beachparty.fabric.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import satisfyu.beachparty.client.BeachPartyClient;

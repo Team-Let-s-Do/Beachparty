@@ -19,7 +19,7 @@ public class BeachpartyForge {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(VillagersForge::registerPOIs);
+       // event.enqueueWork(VillagersForge::registerPOIs);
         Beachparty.commonSetup();
     }
 

@@ -1,7 +1,7 @@
 package satisfyu.beachparty.forge.registry;
 
 import com.google.common.collect.ImmutableSet;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -19,12 +19,11 @@ import satisfyu.beachparty.registry.ObjectRegistry;
 import java.lang.reflect.InvocationTargetException;
 
 public class VillagersForge {
-    /*
 
     public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, Beachparty.MOD_ID);
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS = DeferredRegister.create(ForgeRegistries.VILLAGER_PROFESSIONS, Beachparty.MOD_ID);
 
-    public static final DeferredRegister<VillagerType> VILLAGER_TYPES = DeferredRegister.create(Registry.VILLAGER_TYPE_REGISTRY, Beachparty.MOD_ID);
+    public static final DeferredRegister<VillagerType> VILLAGER_TYPES = DeferredRegister.create(Registries.VILLAGER_TYPE, Beachparty.MOD_ID);
 
 
     public static final RegistryObject<PoiType> BEACH_GUY_POI = POI_TYPES.register("beach_guy_poi", () ->
@@ -42,28 +41,23 @@ public class VillagersForge {
     public static final RegistryObject<VillagerType> BEACH = VILLAGER_TYPES.register("beachparty", () -> new VillagerType("beachparty"));
     
     public static void addToBiomes() {
-        VillagerType.BY_BIOME.put(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("beach")), BEACH.get());
+        VillagerType.BY_BIOME.put(ResourceKey.create(Registries.BIOME, new ResourceLocation("beach")), BEACH.get());
     }
-
-     */
 
 
     public static void registerPOIs(){
-        /*
         try {
             ObfuscationReflectionHelper.findMethod(PoiType.class, "registerBlockStates", PoiType.class).invoke(null, BARKEEPER_POI.get(), BEACH_GUY_POI.get());
         } catch (InvocationTargetException | IllegalAccessException exception){
             exception.printStackTrace();
         }
 
-         */
+
     }
 
     public static void register(IEventBus eventBus) {
-        /*
+
         POI_TYPES.register(eventBus);
         VILLAGER_PROFESSIONS.register(eventBus);
-
-         */
     }
 }

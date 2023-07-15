@@ -46,7 +46,7 @@ public class BeachPartyClient {
 
     public static void preInitClient(){
         TerraformSignHelper.regsterSignSprite(TerraformRegistry.PALM_SIGN_TEXTURE);
-        TerraformSignHelper.regsterSignSprite(TerraformRegistry.PALM_HANGING_SIGN_TEXTURE);
+        //TerraformSignHelper.regsterSignSprite(TerraformRegistry.PALM_HANGING_SIGN_TEXTURE);
 
         registerEntityEntityRenderers();
         registerEntityModelLayers();

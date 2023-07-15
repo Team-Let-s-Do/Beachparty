@@ -18,8 +18,6 @@ public class BeachpartyFabric implements ModInitializer {
     public void onInitialize() {
         Beachparty.init();
         Beachparty.commonSetup();
-
-        //Fabric only
         BeachpartyBiomeModification.init();
         VillagersFabric.init();
         registerLootTable();

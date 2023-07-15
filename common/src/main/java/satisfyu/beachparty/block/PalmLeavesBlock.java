@@ -1,11 +1,14 @@
 package satisfyu.beachparty.block;
 
 
+import com.mojang.datafixers.types.templates.Tag;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -13,8 +16,10 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.MapColor;
 import satisfyu.beachparty.registry.ObjectRegistry;
 
 
@@ -92,13 +97,14 @@ public class PalmLeavesBlock extends LeavesBlock {
         return pState.setValue(DISTANCE_9, i);
     }
 
+
     private static int getDistanceAt(BlockState pNeighbor) {
         Block block = pNeighbor.getBlock();
         if (block == ObjectRegistry.PALM_LOG) {
             return 9;
         } else if (block instanceof PalmLeavesBlock) {
             return pNeighbor.getValue(DISTANCE_9);
-        } else if (pNeighbor.getBlock() == ObjectRegistry.PALM_LOG) {
+        } else if (pNeighbor.getMapColor(BlockGetter.traverseBlocks) == Tag.) {
             return 0;
         } else {
             return 9;

@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import satisfyu.beachparty.event.CommonEvents;
+import satisfyu.beachparty.networking.BeachpartyMessages;
 import satisfyu.beachparty.registry.*;
 
 public class Beachparty {
@@ -25,6 +26,7 @@ public class Beachparty {
         ScreenHandlerTypesRegistry.init();
         PlacerTypesRegistry.init();
         CommonEvents.init();
+        BeachpartyMessages.registerC2SPackets();
 
     }
 

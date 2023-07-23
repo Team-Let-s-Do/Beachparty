@@ -35,7 +35,6 @@ public class BeachPartyClient {
         MenuRegistry.registerScreenFactory(ScreenHandlerTypesRegistry.MINI_FRIDGE_GUI_HANDLER.get(), MiniFridgeGui::new);
 
 
-        BeachpartyMessages.registerC2SPackets();
         BeachpartyMessages.registerS2CPackets();
 
         ClientUtil.registerColorArmor(ObjectRegistry.TRUNKS.get(), 16715535);

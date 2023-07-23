@@ -19,10 +19,6 @@ import java.util.*;
 public class RadioHelper {
     private static final Map<BlockPos, List<SimpleSoundInstance>> soundInstances = new HashMap<>();
 
-    public static void setPlaying(BlockPos pos, int channel, boolean play) {
-        setPlaying(pos, channel, play, 0);
-    }
-
     public static void setPlaying(BlockPos pos, int channel, boolean play, int delay) {
         if (play) {
             if (!soundInstances.containsKey(pos)) {

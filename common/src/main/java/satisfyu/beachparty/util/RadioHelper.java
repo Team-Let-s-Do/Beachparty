@@ -10,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import satisfyu.beachparty.Beachparty;
 import satisfyu.beachparty.registry.SoundEventRegistry;
 import org.apache.commons.compress.utils.Lists;
 
@@ -18,10 +19,6 @@ import java.util.*;
 @Environment(EnvType.CLIENT)
 public class RadioHelper {
     private static final Map<BlockPos, List<SimpleSoundInstance>> soundInstances = new HashMap<>();
-
-    public static void setPlaying(BlockPos pos, int channel, boolean play) {
-        setPlaying(pos, channel, play, 0);
-    }
 
     public static void setPlaying(BlockPos pos, int channel, boolean play, int delay) {
         if (play) {

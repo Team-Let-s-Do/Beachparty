@@ -12,8 +12,6 @@ public class TuneRadioS2CPacket implements NetworkManager.NetworkReceiver {
         BlockPos blockPos = buf.readBlockPos();
         int channel = buf.readInt();
 
-
-
-        RadioHelper.tune(blockPos, channel);
+        context.queue(() -> RadioHelper.tune(blockPos, channel));
     }
 }

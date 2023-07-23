@@ -110,8 +110,8 @@ public class RadioBlock extends Block {
         world.playSound(player, pos, SoundEventRegistry.RADIO_CLICK.get(), SoundSource.BLOCKS, 1.0f, 1.0f);
         world.playSound(player, pos, SoundEventRegistry.RADIO_TUNE.get(), SoundSource.RECORDS, 0.8f, 1.0f);
         if (!world.isClientSide) {
+            sendPacket(state, (ServerLevel) world, pos, true);
             pressButton(state, world, pos, true);
-            sendPacket(state, world, pos, true);
         }
     }
 
@@ -119,7 +119,7 @@ public class RadioBlock extends Block {
         world.playSound(player, pos, SoundEventRegistry.RADIO_CLICK.get(), SoundSource.BLOCKS, 1.0f, 1.0f);
         if (!world.isClientSide) {
             pressButton(state, world, pos, false);
-            sendPacket(state, world, pos, false);
+            sendPacket(state, (ServerLevel) world, pos, false);
         }
     }
 
@@ -139,13 +139,13 @@ public class RadioBlock extends Block {
             world.scheduleTick(pos, this, DELAY);
     }
 
-    private void sendPacket(BlockState state, Level world, BlockPos pos, boolean on) {
-        FriendlyByteBuf buffer = BeachpartyUtil.createPacketBuf();
-        buffer.writeBlockPos(pos);
-        buffer.writeInt(state.getValue(CHANNEL));
-        buffer.writeBoolean(on);
-        for (Player player : world.players()) {
-            NetworkManager.sendToPlayer((ServerPlayer) player, BeachpartyMessages.TURN_RADIO_S2C, buffer);
+    private void sendPacket(BlockState state, ServerLevel world, BlockPos pos, boolean on) {
+        for (ServerPlayer player : world.players()) {
+            FriendlyByteBuf buffer = BeachpartyUtil.createPacketBuf();
+            buffer.writeBlockPos(pos);
+            buffer.writeInt(state.getValue(CHANNEL));
+            buffer.writeBoolean(on);
+            NetworkManager.sendToPlayer(player, BeachpartyMessages.TURN_RADIO_S2C, buffer);
         }
     }
 
@@ -157,12 +157,11 @@ public class RadioBlock extends Block {
     @Override
     public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean moved) {
         if (!state.is(newState.getBlock())) {
-            if(!world.isClientSide) {
-                sendPacket(state, world, pos, false);
+            if (!world.isClientSide) {
+                sendPacket(state, (ServerLevel) world, pos, false);
             }
             super.onRemove(state, world, pos, newState, moved);
         }
-
     }
 
     @Override

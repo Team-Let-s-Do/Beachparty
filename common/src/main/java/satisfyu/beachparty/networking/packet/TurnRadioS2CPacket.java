@@ -13,7 +13,6 @@ public class TurnRadioS2CPacket implements NetworkManager.NetworkReceiver {
         BlockPos blockPos = buf.readBlockPos();
         int channel = buf.readInt();
         boolean on = buf.readBoolean();
-
-        RadioHelper.setPlaying(blockPos, channel, on, on ? RadioBlock.DELAY : 0);
+        context.queue(() -> RadioHelper.setPlaying(blockPos, channel, on, on ? RadioBlock.DELAY : 0));
     }
 }

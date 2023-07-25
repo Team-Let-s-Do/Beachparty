@@ -15,9 +15,9 @@ import java.util.List;
 
 public class BetterCustomArmorModelItem extends CustomHatItem {
 
-    private ResourceLocation textureLocation;
+    private final ResourceLocation textureLocation;
 
-    private float offset;
+    private final float offset;
 
     public BetterCustomArmorModelItem(ArmorMaterial material, Type slot, Properties settings, ResourceLocation textureLocation, float offset){
         super(material, slot, settings);

@@ -29,6 +29,9 @@
     ],
     "rei_client": [
       "satisfyu.beachparty.fabric.rei.BeachpartyREIClientPluginFabric"
+    ],
+    "jei_mod_plugin": [
+      "satisfyu.beachparty.compat.jei.BeachpartyJEIPlugin"
     ]
   },
   "mixins": [

@@ -64,7 +64,7 @@ public class TikiBarGuiHandler extends AbstractRecipeBookGUIScreenHandler {
         if (totalProgress == 0 || progress == 0) {
             return 0;
         }
-        return progress * 19 / totalProgress + 1;
+        return progress * 20 / totalProgress + 1;
     }
 
     @Override

@@ -20,7 +20,7 @@ public class TikiBarOutputSlot extends Slot {
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        return super.mayPlace(stack) && stack.getCount() <= this.getMaxStackSize(stack);
+        return false;
     }
 
     @Override

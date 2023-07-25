@@ -17,7 +17,7 @@ import satisfyu.beachparty.registry.ObjectRegistry;
 import java.util.List;
 
 public class TikiBarCategory implements DisplayCategory<TikiBarDisplay> {
-    public static final CategoryIdentifier<TikiBarDisplay> TIKI_BAR_DISPLAY = CategoryIdentifier.of(Beachparty.MOD_ID, "tiki_bar__display");
+    public static final CategoryIdentifier<TikiBarDisplay> TIKI_BAR_DISPLAY = CategoryIdentifier.of(Beachparty.MOD_ID, "tiki_bar_display");
 
     @Override
     public CategoryIdentifier<TikiBarDisplay> getCategoryIdentifier() {

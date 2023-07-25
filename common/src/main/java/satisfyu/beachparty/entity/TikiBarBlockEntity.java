@@ -1,12 +1,12 @@
 package satisfyu.beachparty.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.ExperienceOrb;
@@ -21,18 +21,18 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 import satisfyu.beachparty.client.gui.handler.TikiBarGuiHandler;
 import satisfyu.beachparty.recipe.TikiBarRecipe;
 import satisfyu.beachparty.registry.BlockEntityRegistry;
-import satisfyu.beachparty.registry.EntityRegistry;
 import satisfyu.beachparty.registry.RecipeRegistry;
-import org.jetbrains.annotations.Nullable;
 
-public class TikiBarBlockEntity extends BlockEntity implements Container, BlockEntityTicker<TikiBarBlockEntity>, MenuProvider {
-
+public class TikiBarBlockEntity extends BlockEntity implements ImplementedInventory, BlockEntityTicker<TikiBarBlockEntity>, MenuProvider {
+    private static final int[] SLOTS_FOR_SIDE = new int[]{2};
+    private static final int[] SLOTS_FOR_UP = new int[]{1};
+    private static final int[] SLOTS_FOR_DOWN = new int[]{0};
     private NonNullList<ItemStack> inventory;
     public static final int CAPACITY = 3;
-    public static final int COOKING_TIME_IN_TICKS = 1800; // 90s or 3 minutes
     private static final int OUTPUT_SLOT = 0;
     private int fermentationTime = 0;
     private int totalFermentationTime;
@@ -154,28 +154,17 @@ public class TikiBarBlockEntity extends BlockEntity implements Container, BlockE
     }
 
     @Override
-    public int getContainerSize() {
-        return CAPACITY;
+    public NonNullList<ItemStack> getItems() {
+        return inventory;
     }
 
     @Override
-    public boolean isEmpty() {
-        return inventory.stream().allMatch(ItemStack::isEmpty);
-    }
-
-    @Override
-    public ItemStack getItem(int slot) {
-        return this.inventory.get(slot);
-    }
-
-    @Override
-    public ItemStack removeItem(int slot, int amount) {
-        return ContainerHelper.removeItem(this.inventory, slot, amount);
-    }
-
-    @Override
-    public ItemStack removeItemNoUpdate(int slot) {
-        return ContainerHelper.takeItem(this.inventory, slot);
+    public int[] getSlotsForFace(Direction side) {
+        if(side.equals(Direction.UP)){
+            return SLOTS_FOR_UP;
+        } else if (side.equals(Direction.DOWN)){
+            return SLOTS_FOR_DOWN;
+        } else return SLOTS_FOR_SIDE;
     }
 
     @Override
@@ -201,11 +190,6 @@ public class TikiBarBlockEntity extends BlockEntity implements Container, BlockE
         } else {
             return player.distanceToSqr((double)this.worldPosition.getX() + 0.5, (double)this.worldPosition.getY() + 0.5, (double)this.worldPosition.getZ() + 0.5) <= 64.0;
         }
-    }
-
-    @Override
-    public void clearContent() {
-        this.inventory.clear();
     }
 
 

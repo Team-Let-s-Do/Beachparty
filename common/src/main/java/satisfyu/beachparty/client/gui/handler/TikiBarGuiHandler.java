@@ -10,6 +10,7 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
+import satisfyu.beachparty.client.gui.handler.slot.IceSlot;
 import satisfyu.beachparty.client.gui.handler.slot.TikiBarOutputSlot;
 import satisfyu.beachparty.client.recipebook.group.TikiBarRecipeBookGroup;
 import satisfyu.beachparty.recipe.TikiBarRecipe;
@@ -34,7 +35,7 @@ public class TikiBarGuiHandler extends AbstractRecipeBookGUIScreenHandler {
         this.addSlot(new TikiBarOutputSlot(playerInventory.player, inventory, 0, 128,  35));
         // Inputs
         this.addSlot(new Slot(inventory, 1, 55, 26));
-        this.addSlot(new Slot(inventory, 2, 55, 44));
+        this.addSlot(new IceSlot(inventory, 2, 55, 44));
     }
 
     private void buildPlayerContainer(Container playerInventory) {

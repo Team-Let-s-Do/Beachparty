@@ -143,12 +143,27 @@ public class TikiBarBlockEntity extends BlockEntity implements Container, BlockE
         }
         for (Ingredient entry : recipe.getIngredients()) {
             if (entry.test(this.getItem(1))) {
+                ItemStack remainderStack = getRemainderItem(this.getItem(1));
                 removeItem(1, 1);
+                if (!remainderStack.isEmpty()) {
+                    setItem(1, remainderStack);
+                }
             }
             if (entry.test(this.getItem(2))) {
+                ItemStack remainderStack = getRemainderItem(this.getItem(2));
                 removeItem(2, 1);
+                if (!remainderStack.isEmpty()) {
+                    setItem(2, remainderStack);
+                }
             }
         }
+    }
+
+    private ItemStack getRemainderItem(ItemStack stack) {
+        if (stack.getItem().hasCraftingRemainingItem()) {
+            return new ItemStack(stack.getItem().getCraftingRemainingItem());
+        }
+        return ItemStack.EMPTY;
     }
 
     @Override

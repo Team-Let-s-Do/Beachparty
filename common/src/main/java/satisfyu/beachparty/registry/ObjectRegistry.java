@@ -47,7 +47,7 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> SAND_DIRTY = registerWithItem("sand_dirty", () -> new SandBlock(14406560, BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND).strength(0.5F).sound(SoundType.SAND)));
     public static final RegistrySupplier<Block> SAND_SEASTARS = registerWithItem("sand_seastars", () -> new SandBlock(14406560, BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND).strength(0.5F).sound(SoundType.SAND)));
     public static final RegistrySupplier<Block> SANDWAVES = registerWithItem("sandwaves", () -> new SandBlock(14406560, BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND).strength(0.5F).sound(SoundType.SAND)));
-    public static final RegistrySupplier<Block> SAND_SLAB = registerWithItem("sand_slab", () -> new SandSlabBlock(getSlabSettings().sound(SoundType.SAND)));
+    public static final RegistrySupplier<Block> SAND_SLAB = registerWithItem("sand_slab", () -> new SandSlabBlock(getSlabSettings().sound(SoundType.SAND).strength(0.5F)));
     public static final RegistrySupplier<Block> SAND_PILE = registerWithoutItem("sand_pile", () -> new SandPileBlock(14406560, BlockBehaviour.Properties.copy(Blocks.SAND)));
     public static final RegistrySupplier<Block> STRIPPED_PALM_LOG = registerLog("stripped_palm_log");
     public static final RegistrySupplier<Block> PALM_LOG = registerLog("palm_log");

@@ -138,20 +138,37 @@ public class TikiBarBlockEntity extends BlockEntity implements ImplementedInvent
             return;
         }
         final ItemStack recipeOutput = recipe.getResultItem(access);
-        final ItemStack outputSlotStack = this.getItem(OUTPUT_SLOT);
+        final ItemStack outputSlotStack = getItem(OUTPUT_SLOT);
         if (outputSlotStack.isEmpty()) {
             ItemStack output = recipeOutput.copy();
             setItem(OUTPUT_SLOT, output);
         }
         for (Ingredient entry : recipe.getIngredients()) {
             if (entry.test(this.getItem(1))) {
+                ItemStack remainderStack = getRemainderItem(this.getItem(1));
                 removeItem(1, 1);
+                if (!remainderStack.isEmpty()) {
+                    setItem(1, remainderStack);
+                }
             }
             if (entry.test(this.getItem(2))) {
+                ItemStack remainderStack = getRemainderItem(this.getItem(2));
                 removeItem(2, 1);
+                if (!remainderStack.isEmpty()) {
+                    setItem(2, remainderStack);
+                }
             }
         }
     }
+
+
+    private ItemStack getRemainderItem(ItemStack stack) {
+        if (stack.getItem().hasCraftingRemainingItem()) {
+            return new ItemStack(stack.getItem().getCraftingRemainingItem());
+        }
+        return ItemStack.EMPTY;
+    }
+
 
     @Override
     public NonNullList<ItemStack> getItems() {

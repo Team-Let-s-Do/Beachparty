@@ -71,10 +71,6 @@ public class MiniFridgeBlockEntity extends BlockEntity implements ImplementedInv
         this.inventory = NonNullList.withSize(CAPACITY, ItemStack.EMPTY);
     }
 
-    public void dropExperience(ServerLevel world, Vec3 pos) {
-        ExperienceOrb.award(world, pos, (int) experience);
-    }
-
 
     @Override
     public void load(CompoundTag nbt) {

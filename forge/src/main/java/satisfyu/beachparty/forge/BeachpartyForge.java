@@ -7,6 +7,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import satisfyu.beachparty.Beachparty;
 import satisfyu.beachparty.forge.registry.VillagersForge;
+import satisfyu.beachparty.registry.CompostablesRegistry;
 
 @Mod(Beachparty.MOD_ID)
 public class BeachpartyForge {
@@ -19,7 +20,8 @@ public class BeachpartyForge {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-       // event.enqueueWork(VillagersForge::registerPOIs);
+        //event.enqueueWork(VillagersForge::registerPOIs);
+        event.enqueueWork(CompostablesRegistry::init);
         Beachparty.commonSetup();
     }
 

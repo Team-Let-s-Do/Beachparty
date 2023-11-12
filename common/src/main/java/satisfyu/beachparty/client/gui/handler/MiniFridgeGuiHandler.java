@@ -64,15 +64,6 @@ public class MiniFridgeGuiHandler extends AbstractRecipeBookGUIScreenHandler {
         }
     }
 
-    public int getCookProgress() {
-        int i = this.delegate.get(0);
-        int j = this.delegate.get(1);
-        if (j == 0 || i == 0) {
-            return 0;
-        }
-        return i * 24 / j;
-    }
-
     @Override
     public List<IRecipeBookGroup> getGroups() {
         return MiniFridgeRecipeBookGroup.FRIDGE_GROUPS;

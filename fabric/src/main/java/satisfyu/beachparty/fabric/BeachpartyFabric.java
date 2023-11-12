@@ -10,6 +10,7 @@ import satisfyu.beachparty.Beachparty;
 import satisfyu.beachparty.fabric.entity.EntitySpawnFabric;
 import satisfyu.beachparty.fabric.registry.VillagersFabric;
 import satisfyu.beachparty.fabric.world.BeachpartyBiomeModification;
+import satisfyu.beachparty.registry.CompostablesRegistry;
 
 import java.util.Set;
 
@@ -17,6 +18,7 @@ public class BeachpartyFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         Beachparty.init();
+        CompostablesRegistry.init();
         Beachparty.commonSetup();
         BeachpartyBiomeModification.init();
         VillagersFabric.init();

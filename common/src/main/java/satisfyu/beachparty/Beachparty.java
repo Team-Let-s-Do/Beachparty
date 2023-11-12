@@ -30,7 +30,6 @@ public class Beachparty {
     }
 
     public static void commonSetup(){
-        CompostablesRegistry.init();
         ObjectRegistry.commonInit();
 
         AxeItemHooks.addStrippable(ObjectRegistry.PALM_LOG.get(), ObjectRegistry.STRIPPED_PALM_LOG.get());

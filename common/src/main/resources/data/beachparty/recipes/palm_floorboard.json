@@ -9,7 +9,7 @@
       "item": "beachparty:palm_slab"
     },
     "B": {
-      "item": "beachparty:palm_planks"
+            "tag": "beachparty:palm_planks"
     }
   },
   "result": {

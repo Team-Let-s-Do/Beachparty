@@ -103,6 +103,7 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Item> SWEETBERRY_ICECREAM = registerItem("sweetberry_icecream", () -> new IcecreamItem(getSettings().food(Foods.COOKED_BEEF)));
     public static final RegistrySupplier<Item> COCONUT_ICECREAM = registerItem("coconut_icecream", () -> new IcecreamItem(getSettings().food(Foods.COOKED_BEEF)));
     public static final RegistrySupplier<Item> CHOCOLATE_ICECREAM = registerItem("chocolate_icecream", () -> new IcecreamItem(getSettings().food(Foods.COOKED_BEEF)));
+    public static final RegistrySupplier<Item> REFRESHING_DRINK = registerItem("refreshing_drink", () -> new DrinkItem(getSettings().food(Foods.BAKED_POTATO), 32, true));
     public static final RegistrySupplier<Item> ICECREAM_COCONUT = registerItem("icecream_coconut", () -> new IcecreamItem(getSettings().food(Foods.BAKED_POTATO)));
     public static final RegistrySupplier<Item> ICECREAM_MELON = registerItem("icecream_melon", () -> new IcecreamItem(getSettings().food(Foods.BAKED_POTATO)));
     public static final RegistrySupplier<Item> ICECREAM_CACTUS = registerItem("icecream_cactus", () -> new IcecreamItem(getSettings().food(Foods.BAKED_POTATO)));
@@ -123,8 +124,7 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Item> RUBBER_RING_PELICAN = registerItem("rubber_ring_pelican", () -> new BeachpartyCustomArmorItem(MaterialsRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.RARE), new BeachpartyIdentifier("textures/entity/rubber_ring_pelican.png")));
     public static final RegistrySupplier<Item> RUBBER_RING_AXOLOTL = registerItem("rubber_ring_axolotl", () -> new BeachpartyCustomArmorItem(MaterialsRegistry.RING, ArmorItem.Type.CHESTPLATE, getSettings().rarity(Rarity.RARE), new BeachpartyIdentifier("textures/entity/rubber_ring_axolotl.png")));
     public static final RegistrySupplier<Item> POOL_NOODLE = registerItem("pool_noodle", () -> new PoolNoodleItem(Tiers.WOOD, 1, -1.4F, getSettings()));
-    public static final RegistrySupplier<Item> BOAT = registerItem("boat", () -> new Item(getSettings()));
-    public static final RegistrySupplier<Item> BEACH_UMBRELLA = registerItem("beach_umbrella", () -> new Item(getSettings()));
+    public static final RegistrySupplier<Block> BEACH_PARASOL = registerWithItem("beach_parasol", () -> new ParasolBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static final RegistrySupplier<Block> PALM_TORCH = registerWithoutItem("palm_torch", () -> new TorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).noCollission().instabreak().lightLevel((state) -> 14).sound(SoundType.WOOD), ParticleTypes.FLAME));
     public static final RegistrySupplier<Block> PALM_WALL_TORCH = registerWithoutItem("palm_wall_torch", () -> new WallTorchBlock(BlockBehaviour.Properties.copy(Blocks.TORCH).noCollission().instabreak().lightLevel((state) -> 14).sound(SoundType.WOOD).dropsLike(PALM_TORCH.get()), ParticleTypes.FLAME));
     public static final RegistrySupplier<Item> PALM_TORCH_ITEM = registerItem("palm_torch_item", () -> new StandingAndWallBlockItem(ObjectRegistry.PALM_TORCH.get(), ObjectRegistry.PALM_WALL_TORCH.get(), getSettings(), Direction.DOWN));

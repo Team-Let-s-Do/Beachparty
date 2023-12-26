@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "beachparty:beach_parasol",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "half": "upper"
+              }
+            }
+          ],
+          "name": "beachparty:beach_parasol"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

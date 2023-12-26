@@ -15,6 +15,8 @@ import satisfyu.beachparty.BeachpartyIdentifier;
 public class TerraformRegistry {
 
     public static ResourceLocation PALM_BOAT_TYPE = new BeachpartyIdentifier("palm");
+    public static ResourceLocation FLOATY_BOAT_TYPE = new BeachpartyIdentifier("floaty");
+
     public static final ResourceLocation PALM_SIGN_TEXTURE = new BeachpartyIdentifier("entity/signs/palm");
 
 
@@ -31,9 +33,13 @@ public class TerraformRegistry {
 
     public static RegistrySupplier<Item> PALM_BOAT = TerraformBoatItemHelper.registerBoatItem(ObjectRegistry.ITEMS, "palm_boat", PALM_BOAT_TYPE, false);
     public static RegistrySupplier<Item> PALM_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ObjectRegistry.ITEMS, "palm_chest_boat", PALM_BOAT_TYPE, true);
+    public static RegistrySupplier<Item> FLOATY = TerraformBoatItemHelper.registerBoatItem(ObjectRegistry.ITEMS, "floaty", FLOATY_BOAT_TYPE, false);
+    public static RegistrySupplier<Item> FLOATY_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ObjectRegistry.ITEMS, "floaty_chest_boat", FLOATY_BOAT_TYPE, true);
 
     public static void init() {
         DoApiExpectPlatform.registerBoatType(PALM_BOAT_TYPE, new TerraformBoatType.Builder().item(PALM_BOAT).chestItem(PALM_CHEST_BOAT).build());
+        DoApiExpectPlatform.registerBoatType(FLOATY_BOAT_TYPE, new TerraformBoatType.Builder().item(FLOATY).chestItem(FLOATY_CHEST_BOAT).build());
+
     }
 
 

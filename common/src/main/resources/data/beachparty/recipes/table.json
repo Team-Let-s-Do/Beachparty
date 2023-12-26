@@ -10,7 +10,7 @@
       "item": "beachparty:palm_slab"
     },
     "X": {
-      "item": "beachparty:palm_planks"
+            "tag": "beachparty:palm_planks"
     },
     "B": {
       "item": "minecraft:stick"

@@ -10,8 +10,7 @@
     "AbstractBlockMixin",
     "BlockMixin",
     "HereBeNoDragonsMixin",
-    "PotionItemMixin",
-    "SpawnMobAccessor"
+    "PotionItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

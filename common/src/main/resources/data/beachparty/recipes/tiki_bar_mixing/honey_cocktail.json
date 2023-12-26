@@ -2,7 +2,7 @@
   "type": "beachparty:tiki_bar_mixing",
   "ingredients": [
     {
-      "item": "minecraft:honey_bottle"
+      "item": "minecraft:honeycomb"
     },
     {
       "item": "minecraft:ice"

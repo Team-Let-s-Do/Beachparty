@@ -22,10 +22,6 @@ public class SoundEventRegistry {
     public static final RegistrySupplier<SoundEvent> RADIO_HAWAII = create("radio_hawaii");
     public static final RegistrySupplier<SoundEvent> RADIO_TROPICAL = create("radio_tropical");
     public static final RegistrySupplier<SoundEvent> RADIO_BEACHPARTY = create("radio_beachparty");
-    public static final RegistrySupplier<SoundEvent> AMBIENT_BEACH = create("ambient_beach");
-    public static final RegistrySupplier<SoundEvent> PELICAN_HURT = create("pelican_hurt");
-    public static final RegistrySupplier<SoundEvent> PELICAN_IDLE = create("pelican_idle");
-    public static final RegistrySupplier<SoundEvent> PELICAN_DEATH = create("pelican_death");
     public static final RegistrySupplier<SoundEvent> CABINET_OPEN = create("cabinet_open");
     public static final RegistrySupplier<SoundEvent> CABINET_CLOSE = create("cabinet_close");
 

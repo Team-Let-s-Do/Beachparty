@@ -12,8 +12,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import satisfyu.beachparty.client.gui.MiniFridgeGui;
 import satisfyu.beachparty.client.gui.TikiBarGui;
-import satisfyu.beachparty.entity.pelican.PelicanModel;
-import satisfyu.beachparty.entity.pelican.PelicanRenderer;
 import satisfyu.beachparty.networking.BeachpartyMessages;
 import satisfyu.beachparty.registry.*;
 
@@ -45,21 +43,17 @@ public class BeachPartyClient {
 
     public static void preInitClient(){
         TerraformSignHelper.regsterSignSprite(TerraformRegistry.PALM_SIGN_TEXTURE);
-        //TerraformSignHelper.regsterSignSprite(TerraformRegistry.PALM_HANGING_SIGN_TEXTURE);
+        TerraformSignHelper.regsterSignSprite(TerraformRegistry.PALM_HANGING_SIGN_TEXTURE);
 
         registerEntityEntityRenderers();
         registerEntityModelLayers();
     }
 
     public static void registerEntityEntityRenderers(){
-        EntityRendererRegistry.register(EntityRegistry.PELICAN, PelicanRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.COCONUT, ThrownItemRenderer::new);
     }
 
     public static void registerEntityModelLayers(){
-        EntityModelLayerRegistry.register(PelicanModel.PELICAN_MODEL_LAYER, PelicanModel::getTexturedModelData);
-
-        //"API"
         CustomArmorRegistry.registerCustomArmorLayers();
     }
 

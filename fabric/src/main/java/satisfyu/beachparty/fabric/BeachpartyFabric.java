@@ -7,7 +7,6 @@ import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootTableReference;
 import satisfyu.beachparty.Beachparty;
-import satisfyu.beachparty.fabric.entity.EntitySpawnFabric;
 import satisfyu.beachparty.fabric.registry.VillagersFabric;
 import satisfyu.beachparty.fabric.world.BeachpartyBiomeModification;
 import satisfyu.beachparty.registry.CompostablesRegistry;
@@ -23,8 +22,11 @@ public class BeachpartyFabric implements ModInitializer {
         BeachpartyBiomeModification.init();
         VillagersFabric.init();
         registerLootTable();
-        EntitySpawnFabric.addEntitySpawn();
     }
+
+
+
+
 
     protected static void registerLootTable() {
         Set<ResourceLocation> chestsId = Set.of(

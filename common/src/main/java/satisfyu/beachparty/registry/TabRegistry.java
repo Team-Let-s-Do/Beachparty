@@ -77,8 +77,6 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.ICECREAM_CHOCOLATE.get());
                 out.accept(ObjectRegistry.ICECREAM_SWEETBERRIES.get());
                 out.accept(ObjectRegistry.ICECREAM_MELON.get());
-                out.accept(ObjectRegistry.RAW_PELICAN.get());
-                out.accept(ObjectRegistry.COOKED_PELICAN.get());
                 out.accept(ObjectRegistry.RAW_MUSSEL_MEAT.get());
                 out.accept(ObjectRegistry.COOKED_MUSSEL_MEAT.get());
                 out.accept(ObjectRegistry.BEACH_TOWEL.get());
@@ -98,7 +96,6 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.BEACH_UMBRELLA.get());
                 out.accept(ObjectRegistry.PALM_TORCH.get());
                 out.accept(ObjectRegistry.PALM_TALL_TORCH.get());
-                out.accept(ObjectRegistry.PELICAN_SPAWN_EGG.get());
             })
             .build());
 

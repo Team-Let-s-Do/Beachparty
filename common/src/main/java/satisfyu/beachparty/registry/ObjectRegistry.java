@@ -207,6 +207,5 @@ public class ObjectRegistry {
     public static <T extends Item> RegistrySupplier<T> registerItem(String path, Supplier<T> itemSupplier) {
         return Util.registerItem(ITEMS, ITEM_REGISTRAR, new BeachpartyIdentifier(path), itemSupplier);
     }
-
 }
 

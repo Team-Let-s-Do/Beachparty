@@ -1,0 +1,44 @@
+{
+  "type": "botanypots:crop",
+  "seed": {
+    "item": "beachparty:palm_sapling"
+  },
+  "categories": [
+    "dirt",
+    "farmland"
+  ],
+  "growthTicks": 1200,
+  "display": {
+    "block": "beachparty:palm_sapling"
+  },
+   "drops": [
+    {
+      "chance": 1.00,
+      "output": {
+        "item": "beachparty:palm_log"
+      },
+      "minRolls": 2,
+      "maxRolls": 4
+    },
+    {
+      "chance": 0.10,
+      "output": {
+        "item": "minecraft:stick"
+      },
+      "minRolls": 1,
+      "maxRolls": 1
+    },
+    {
+      "chance": 0.05,
+      "output": {
+        "item": "beachparty:coconut"
+      }
+    },
+    {
+      "chance": 0.15,
+      "output": {
+        "item": "beachparty:palm_sapling"
+      }
+    }
+  ]
+}

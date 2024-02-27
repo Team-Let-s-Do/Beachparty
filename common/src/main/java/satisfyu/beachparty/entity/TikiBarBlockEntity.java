@@ -116,14 +116,17 @@ public class TikiBarBlockEntity extends BlockEntity implements ImplementedInvent
     }
 
     private boolean canCraft(TikiBarRecipe recipe, RegistryAccess access) {
-        if (recipe == null || recipe.getResultItem(access).isEmpty()) {
-            return false;
-        } else if (areInputsEmpty()) {
-            return false;
-        }
-        return this.getItem(OUTPUT_SLOT).isEmpty()  || this.getItem(OUTPUT_SLOT) == recipe.getResultItem(access);
-    }
+        if (recipe == null) return false;
 
+        ItemStack recipeResultItem = recipe.getResultItem(access);
+        if (recipeResultItem.isEmpty() || areInputsEmpty()) return false;
+
+        ItemStack outputSlotItem = getItem(OUTPUT_SLOT);
+        if (outputSlotItem.isEmpty()) return true;
+
+        return ItemStack.isSameItem(outputSlotItem, recipeResultItem) &&
+                outputSlotItem.getCount() + recipeResultItem.getCount() <= outputSlotItem.getMaxStackSize();
+    }
 
     private boolean areInputsEmpty() {
         int emptyStacks = 0;
@@ -134,33 +137,32 @@ public class TikiBarBlockEntity extends BlockEntity implements ImplementedInvent
     }
 
     private void craft(TikiBarRecipe recipe, RegistryAccess access) {
-        if (!canCraft(recipe, access)) {
-            return;
-        }
-        final ItemStack recipeOutput = recipe.getResultItem(access);
-        final ItemStack outputSlotStack = getItem(OUTPUT_SLOT);
+        ItemStack recipeOutput = recipe.getResultItem(access).copy();
+        ItemStack outputSlotStack = getItem(OUTPUT_SLOT);
+
         if (outputSlotStack.isEmpty()) {
-            ItemStack output = recipeOutput.copy();
-            setItem(OUTPUT_SLOT, output);
-        }
-        for (Ingredient entry : recipe.getIngredients()) {
-            if (entry.test(this.getItem(1))) {
-                ItemStack remainderStack = getRemainderItem(this.getItem(1));
-                removeItem(1, 1);
-                if (!remainderStack.isEmpty()) {
-                    setItem(1, remainderStack);
-                }
+            setItem(OUTPUT_SLOT, recipeOutput);
+        } else if (ItemStack.isSameItem(outputSlotStack, recipeOutput)) {
+            outputSlotStack.grow(recipeOutput.getCount());
+            if (outputSlotStack.getCount() > outputSlotStack.getMaxStackSize()) {
+                outputSlotStack.setCount(outputSlotStack.getMaxStackSize());
             }
-            if (entry.test(this.getItem(2))) {
-                ItemStack remainderStack = getRemainderItem(this.getItem(2));
-                removeItem(2, 1);
-                if (!remainderStack.isEmpty()) {
-                    setItem(2, remainderStack);
+        }
+
+        consumeIngredients(recipe);
+    }
+
+    private void consumeIngredients(TikiBarRecipe recipe) {
+        for (Ingredient ingredient : recipe.getIngredients()) {
+            for (int i = 1; i <= 2; i++) {
+                ItemStack slotItem = this.getItem(i);
+                if (ingredient.test(slotItem)) {
+                    slotItem.shrink(1);
+                    break;
                 }
             }
         }
     }
-
 
     private ItemStack getRemainderItem(ItemStack stack) {
         if (stack.getItem().hasCraftingRemainingItem()) {

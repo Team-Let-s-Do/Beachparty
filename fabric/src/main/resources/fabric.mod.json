@@ -22,7 +22,7 @@
       "satisfyu.beachparty.fabric.client.BeachpartyFabricClient"
     ],
     "doapi": [
-      "satisfyu.beachparty.util.api.BeachPatyDoAPI"
+      "satisfyu.beachparty.util.api.BeachPartyDoAPI"
     ],
     "fabric-datagen": [
       "satisfyu.beachparty.fabric.datagen.BeachpartyDataGeneration"

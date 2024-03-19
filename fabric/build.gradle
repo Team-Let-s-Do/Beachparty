@@ -41,6 +41,7 @@ dependencies {
 
     modImplementation "maven.modrinth:do-api:${project.doapi_version}-fabric"
     modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_wood_api_version}"
+    modImplementation("com.terraformersmc:modmenu:${rootProject.modmenu_version}") { exclude group: 'net.fabricmc', module: 'fabric-loader' }
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }

@@ -5,7 +5,7 @@
   "name": "Beachparty",
   "description": "Take a break - build sandcastles, drink cocktails and enjoy your life.",
   "authors": [
-    "Satisfyu", "BaumeisterJo", "Cristelknight"
+    "Satisfy", "BaumeisterJo", "Cristelknight"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -16,23 +16,33 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "satisfyu.beachparty.fabric.BeachpartyFabric"
+      "satisfy.beachparty.fabric.BeachpartyFabric"
     ],
     "client": [
-      "satisfyu.beachparty.fabric.client.BeachpartyFabricClient"
+      "satisfy.beachparty.fabric.client.BeachpartyFabricClient"
     ],
     "doapi": [
-      "satisfyu.beachparty.util.api.BeachPartyDoAPI"
+      "satisfy.beachparty.util.api.BeachPartyDoAPI"
     ],
     "fabric-datagen": [
-      "satisfyu.beachparty.fabric.datagen.BeachpartyDataGeneration"
+      "satisfy.beachparty.fabric.datagen.BeachpartyDataGeneration"
     ],
     "rei_client": [
-      "satisfyu.beachparty.fabric.rei.BeachpartyREIClientPluginFabric"
+      "satisfy.beachparty.fabric.rei.BeachpartyREIClientPluginFabric"
     ],
     "jei_mod_plugin": [
-      "satisfyu.beachparty.compat.jei.BeachpartyJEIPlugin"
+      "satisfy.beachparty.compat.jei.BeachpartyJEIPlugin"
+    ],
+    "modmenu": [
+      "satisfy.beachparty.fabric.client.ModMenuConfig"
     ]
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/Vqu6wYZwdZ"
+      }
+    }
   },
   "mixins": [
     "beachparty.mixins.json",
@@ -42,6 +52,6 @@
     "fabric": "*",
     "minecraft": ">=1.20",
     "architectury": ">=9.0.8",
-    "doapi": ">=1.2.3"
+    "doapi": ">=1.2.9"
   }
 }

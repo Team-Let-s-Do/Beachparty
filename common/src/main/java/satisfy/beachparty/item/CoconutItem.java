@@ -27,7 +27,7 @@ public class CoconutItem extends BlockItem {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
         ItemStack itemStack = user.getItemInHand(hand);
         world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.EGG_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!world.isClientSide) {
@@ -47,7 +47,6 @@ public class CoconutItem extends BlockItem {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, @NotNull List<Component> tooltip, TooltipFlag context) {
-        tooltip.add(Component.translatable(  "tooltip.beachparty.coconut").withStyle(ChatFormatting.WHITE));
         tooltip.add(Component.translatable("tooltip.beachparty.canbeplaced").withStyle(ITALIC, ChatFormatting.GRAY));
     }
 }

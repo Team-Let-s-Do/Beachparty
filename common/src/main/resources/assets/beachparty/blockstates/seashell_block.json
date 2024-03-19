@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "": [
+ { "model": "beachparty:block/seashell_1", "weight":1 }
+,{ "model": "beachparty:block/seashell_2", "weight":1 }
+,{ "model": "beachparty:block/seashell_3", "weight":1 }
+,{ "model": "beachparty:block/seashell_4", "weight":1 }
+,{ "model": "beachparty:block/seashell_5", "weight":1 }
+,{ "model": "beachparty:block/seashell_6", "weight":1 }
+,{ "model": "beachparty:block/seashell_7", "weight":1 }
+
+ ]   }
+}

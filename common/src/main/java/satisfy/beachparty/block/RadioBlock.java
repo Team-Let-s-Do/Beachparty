@@ -197,8 +197,6 @@ public class RadioBlock extends Block {
     @Override
     public void appendHoverText(ItemStack itemStack, BlockGetter world, List<Component> tooltip, TooltipFlag tooltipContext) {
         tooltip.add(Component.translatable("tooltip.beachparty.canbeplaced").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
-        tooltip.add(Component.translatable("tooltip.beachparty.radioturnon").withStyle(ChatFormatting.WHITE));
-        tooltip.add(Component.translatable("tooltip.beachparty.radioswitch").withStyle(ChatFormatting.WHITE));
     }
 
     static {
@@ -206,5 +204,4 @@ public class RadioBlock extends Block {
         CHANNEL = IntegerProperty.create("channel", 0, CHANNELS - 1);
         SEARCHING = BooleanProperty.create("searching");
     }
-
 }

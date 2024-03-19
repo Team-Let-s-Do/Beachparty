@@ -1,315 +1,73 @@
 package satisfy.beachparty.registry;
 
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.NotNull;
 
 public class ArmorMaterialRegistry {
-    public static final ArmorMaterial TRUNKS = new ArmorMaterial() {
-
-        @Override
-        public int getDurabilityForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDurabilityForType(type);
-        }
-
-        @Override
-        public int getDefenseForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDefenseForType(type);
-        }
-
-
-        @Override
-        public int getEnchantmentValue() {
-            return ArmorMaterials.LEATHER.getEnchantmentValue();
-        }
-
-        @Override
-        public SoundEvent getEquipSound() {
-            return ArmorMaterials.LEATHER.getEquipSound();
-        }
-
-        @Override
-        public Ingredient getRepairIngredient() {
-            return Ingredient.of(Items.STRING);
-        }
-
-        @Override
-        public String getName() {
-            return "trunks";
-        }
-
-        @Override
-        public float getToughness() {
-            return ArmorMaterials.LEATHER.getToughness();
-        }
-
-        @Override
-        public float getKnockbackResistance() {
-            return ArmorMaterials.LEATHER.getKnockbackResistance();
-        }
-    };
-
-    public static final ArmorMaterial BIKINI = new ArmorMaterial() {
-
-        @Override
-        public int getDurabilityForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDurabilityForType(type);
-        }
-
-        @Override
-        public int getDefenseForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDefenseForType(type);
-        }
-
-        @Override
-        public int getEnchantmentValue() {
-            return ArmorMaterials.LEATHER.getEnchantmentValue();
-        }
-
-        @Override
-        public SoundEvent getEquipSound() {
-            return ArmorMaterials.LEATHER.getEquipSound();
-        }
-
-        @Override
-        public Ingredient getRepairIngredient() {
-            return Ingredient.of(Items.STRING);
-        }
-
-        @Override
-        public String getName() {
-            return "bikini";
-        }
-
-        @Override
-        public float getToughness() {
-            return ArmorMaterials.LEATHER.getToughness();
-        }
-
-        @Override
-        public float getKnockbackResistance() {
-            return ArmorMaterials.LEATHER.getKnockbackResistance();
-        }
-    };
-
-    public static final ArmorMaterial RING = new ArmorMaterial() {
-
-        @Override
-        public int getDurabilityForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDurabilityForType(type);
-        }
-
-        @Override
-        public int getDefenseForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDefenseForType(type);
-        }
-
-
-        @Override
-        public int getEnchantmentValue() {
-            return ArmorMaterials.LEATHER.getEnchantmentValue();
-        }
-
-        @Override
-        public SoundEvent getEquipSound() {
-            return ArmorMaterials.LEATHER.getEquipSound();
-        }
-
-        @Override
-        public Ingredient getRepairIngredient() {
-            return Ingredient.of(Items.DRIED_KELP);
-        }
-
-        @Override
-        public String getName() {
-            return "ring";
-        }
-
-        @Override
-        public float getToughness() {
-            return ArmorMaterials.LEATHER.getToughness();
-        }
-
-        @Override
-        public float getKnockbackResistance() {
-            return ArmorMaterials.LEATHER.getKnockbackResistance();
-        }
-    };
-
-    public static final ArmorMaterial BEACH_HAT = new ArmorMaterial() {
-
-        @Override
-        public int getDurabilityForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDurabilityForType(type);
-        }
-
-        @Override
-        public int getDefenseForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDefenseForType(type);
-        }
-
-        @Override
-        public int getEnchantmentValue() {
-            return ArmorMaterials.LEATHER.getEnchantmentValue();
-        }
-
-        @Override
-        public SoundEvent getEquipSound() {
-            return ArmorMaterials.LEATHER.getEquipSound();
-        }
-
-        @Override
-        public Ingredient getRepairIngredient() {
-            return Ingredient.of(Items.WHEAT);
-        }
-
-        @Override
-        public String getName() {
-            return "beach_hat";
-        }
-
-        @Override
-        public float getToughness() {
-            return ArmorMaterials.LEATHER.getToughness();
-        }
-
-        @Override
-        public float getKnockbackResistance() {
-            return ArmorMaterials.LEATHER.getKnockbackResistance();
-        }
-    };
-
-    public static final ArmorMaterial SUNGLASSES = new ArmorMaterial() {
-
-        @Override
-        public int getDurabilityForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDurabilityForType(type);
-        }
-
-        @Override
-        public int getDefenseForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDefenseForType(type);
-        }
-
-        @Override
-        public int getEnchantmentValue() {
-            return ArmorMaterials.LEATHER.getEnchantmentValue();
-        }
-
-        @Override
-        public SoundEvent getEquipSound() {
-            return ArmorMaterials.LEATHER.getEquipSound();
-        }
-
-        @Override
-        public Ingredient getRepairIngredient() {
-            return Ingredient.of(Blocks.BLACK_STAINED_GLASS_PANE.asItem());
-        }
-
-        @Override
-        public String getName() {
-            return "sunglasses";
-        }
-
-        @Override
-        public float getToughness() {
-            return ArmorMaterials.LEATHER.getToughness();
-        }
-
-        @Override
-        public float getKnockbackResistance() {
-            return ArmorMaterials.LEATHER.getKnockbackResistance();
-        }
-    };
-
-    public static final ArmorMaterial SWIM_WINGS = new ArmorMaterial() {
-
-        @Override
-        public int getDurabilityForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDurabilityForType(type);
-        }
-
-        @Override
-        public int getDefenseForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDefenseForType(type);
-        }
-
-        @Override
-        public int getEnchantmentValue() {
-            return ArmorMaterials.LEATHER.getEnchantmentValue();
-        }
-
-        @Override
-        public SoundEvent getEquipSound() {
-            return ArmorMaterials.LEATHER.getEquipSound();
-        }
-
-        @Override
-        public Ingredient getRepairIngredient() {
-            return Ingredient.of(Items.DRIED_KELP);
-        }
-
-        @Override
-        public String getName() {
-            return "swim_wings";
-        }
-
-        @Override
-        public float getToughness() {
-            return ArmorMaterials.LEATHER.getToughness();
-        }
-
-        @Override
-        public float getKnockbackResistance() {
-            return ArmorMaterials.LEATHER.getKnockbackResistance();
-        }
-    };
-
-    public static final ArmorMaterial CROCS = new ArmorMaterial() {
-
-        @Override
-        public int getDurabilityForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDurabilityForType(type);
-        }
-
-        @Override
-        public int getDefenseForType(ArmorItem.Type type) {
-            return ArmorMaterials.LEATHER.getDefenseForType(type);
-        }
-
-        @Override
-        public int getEnchantmentValue() {
-            return ArmorMaterials.LEATHER.getEnchantmentValue();
-        }
-
-        @Override
-        public SoundEvent getEquipSound() {
-            return ArmorMaterials.LEATHER.getEquipSound();
-        }
-
-        @Override
-        public Ingredient getRepairIngredient() {
-            return Ingredient.of(Items.DRIED_KELP);
-        }
-
-        @Override
-        public String getName() {
-            return "crocs";
-        }
-
-        @Override
-        public float getToughness() {
-            return ArmorMaterials.LEATHER.getToughness();
-        }
-
-        @Override
-        public float getKnockbackResistance() {
-            return ArmorMaterials.LEATHER.getKnockbackResistance();
-        }
-    };
+    private static final int ENCHANTMENT_VALUE = 15;
+    private static final SoundEvent EQUIP_SOUND = SoundEvents.ARMOR_EQUIP_LEATHER;
+    private static final float TOUGHNESS = 0.0F;
+    private static final float KNOCKBACK_RESISTANCE = 0.0F;
+
+    private static ArmorMaterial createMaterial(String name, Ingredient repairIngredient) {
+        return new ArmorMaterial() {
+            @Override
+            public int getDurabilityForType(ArmorItem.Type type) {
+                return switch (type) {
+                    case HELMET -> 128; case CHESTPLATE -> 144; case LEGGINGS -> 136; case BOOTS -> 112;
+                };
+            }
+
+            @Override
+            public int getDefenseForType(ArmorItem.Type type) {
+                return switch (type) {
+                    case HELMET, LEGGINGS, BOOTS -> 1; case CHESTPLATE -> 1;
+                };
+            }
+
+            @Override
+            public int getEnchantmentValue() {
+                return ENCHANTMENT_VALUE;
+            }
+
+            @Override
+            public @NotNull SoundEvent getEquipSound() {
+                return EQUIP_SOUND;
+            }
+
+            @Override
+            public @NotNull Ingredient getRepairIngredient() {
+                return repairIngredient;
+            }
+
+            @Override
+            public @NotNull String getName() {
+                return name;
+            }
+
+            @Override
+            public float getToughness() {
+                return TOUGHNESS;
+            }
+
+            @Override
+            public float getKnockbackResistance() {
+                return KNOCKBACK_RESISTANCE;
+            }
+        };
+    }
+
+    public static final ArmorMaterial TRUNKS = createMaterial("trunks", Ingredient.of(Items.STRING));
+    public static final ArmorMaterial BIKINI = createMaterial("bikini", Ingredient.of(Items.STRING));
+    public static final ArmorMaterial RING = createMaterial("ring", Ingredient.of(Items.DRIED_KELP));
+    public static final ArmorMaterial BEACH_HAT = createMaterial("beach_hat", Ingredient.of(Items.WHEAT));
+    public static final ArmorMaterial SUNGLASSES = createMaterial("sunglasses", Ingredient.of(Blocks.BLACK_STAINED_GLASS_PANE.asItem()));
+    public static final ArmorMaterial SWIM_WINGS = createMaterial("swim_wings", Ingredient.of(Items.DRIED_KELP));
+    public static final ArmorMaterial CROCS = createMaterial("crocs", Ingredient.of(Items.DRIED_KELP));
 }
-

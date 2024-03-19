@@ -4,9 +4,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -20,16 +17,15 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import satisfy.beachparty.registry.ObjectRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import satisfy.beachparty.registry.ObjectRegistry;
 
 import java.util.List;
+import java.util.Objects;
 
 public class SandBucketItem extends BlockItem {
     public SandBucketItem(Block block, Properties settings) {
@@ -37,8 +33,8 @@ public class SandBucketItem extends BlockItem {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext context) {
-        if (context.getPlayer().isShiftKeyDown()) {
+    public @NotNull InteractionResult useOn(UseOnContext context) {
+        if (Objects.requireNonNull(context.getPlayer()).isShiftKeyDown()) {
             InteractionResult actionResult = this.place(new BlockPlaceContext(context));
             if (!actionResult.consumesAction() && this.isEdible()) {
                 InteractionResult actionResult2 = this.use(context.getLevel(), context.getPlayer(), context.getHand()).getResult();
@@ -51,7 +47,7 @@ public class SandBucketItem extends BlockItem {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
         ItemStack itemStack = user.getItemInHand(hand);
         BlockHitResult blockHitResult = getPlayerPOVHitResult(world, user, ClipContext.Fluid.NONE);
         if (blockHitResult.getType() == HitResult.Type.MISS) {
@@ -107,15 +103,9 @@ public class SandBucketItem extends BlockItem {
         return !player.getAbilities().instabuild ? new ItemStack(ObjectRegistry.EMPTY_SAND_BUCKET.get()) : stack;
     }
 
-    protected void playEmptyingSound(@Nullable Player player, LevelAccessor world, BlockPos pos) {
-        SoundEvent soundEvent = SoundEvents.BUCKET_EMPTY;
-        world.playSound(player, pos, soundEvent, SoundSource.BLOCKS, 1.0F, 1.0F);
-        world.gameEvent(player, GameEvent.BLOCK_PLACE, pos);
-    }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level world, @NotNull List<Component> tooltip, TooltipFlag context) {
-        tooltip.add(Component.translatable(  "tooltip.beachparty.bucket.use").withStyle(ChatFormatting.WHITE));
-        tooltip.add(Component.translatable(  "tooltip.beachparty.bucket.canbeplaced").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
+        tooltip.add(Component.translatable(  "tooltip.beachparty.canbeplaced").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
 
     }
 }

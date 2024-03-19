@@ -10,15 +10,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 public class DrinkItem extends Item {
 
     private final int useDuration;
-    private final boolean removePoison;
-    public DrinkItem(Properties properties, int useDuration, boolean removePoison) {
+
+    public DrinkItem(Properties properties, int useDuration) {
         super(properties);
         this.useDuration = useDuration;
-        this.removePoison = removePoison;
     }
 
 
@@ -28,22 +28,22 @@ public class DrinkItem extends Item {
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack itemStack) {
+    public @NotNull UseAnim getUseAnimation(ItemStack itemStack) {
         return UseAnim.DRINK;
     }
 
     @Override
-    public SoundEvent getDrinkingSound() {
+    public @NotNull SoundEvent getDrinkingSound() {
         return SoundEvents.HONEY_DRINK;
     }
 
     @Override
-    public SoundEvent getEatingSound() {
+    public @NotNull SoundEvent getEatingSound() {
         return SoundEvents.HONEY_DRINK;
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         return ItemUtils.startUsingInstantly(level, player, interactionHand);
     }
 }

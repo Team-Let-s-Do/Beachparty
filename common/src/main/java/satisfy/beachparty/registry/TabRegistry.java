@@ -15,15 +15,8 @@ public class TabRegistry {
             .icon(() -> new ItemStack(ObjectRegistry.COCONUT_COCKTAIL.get()))
             .title(Component.translatable("creativetab.beachparty.tab"))
             .displayItems((parameters, out) -> {
-                out.accept(ObjectRegistry.BEACH_GRASS.get());
-                out.accept(ObjectRegistry.DRY_BUSH.get());
-                out.accept(ObjectRegistry.DRY_BUSH_TALL.get());
                 out.accept(ObjectRegistry.PALM_LEAVES.get());
                 out.accept(ObjectRegistry.PALM_SAPLING.get());
-                out.accept(ObjectRegistry.SAND_DIRTY.get());
-                out.accept(ObjectRegistry.SAND_SEASTARS.get());
-                out.accept(ObjectRegistry.SANDWAVES.get());
-                out.accept(ObjectRegistry.SAND_SLAB.get());
                 out.accept(ObjectRegistry.STRIPPED_PALM_LOG.get());
                 out.accept(ObjectRegistry.PALM_LOG.get());
                 out.accept(ObjectRegistry.STRIPPED_PALM_WOOD.get());

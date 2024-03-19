@@ -2,6 +2,7 @@ package satisfy.beachparty.item;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class DrinkBlockItem extends BlockItem {
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
+    public @NotNull UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.DRINK;
     }
 

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:sand"
+          "name": "beachparty:seashell"
         }
       ],
       "rolls": 1.0

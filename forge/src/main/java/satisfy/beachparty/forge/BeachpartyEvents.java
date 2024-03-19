@@ -3,6 +3,8 @@ package satisfy.beachparty.forge;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -16,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 
 public class BeachpartyEvents {
-
     @Mod.EventBusSubscriber(modid = Beachparty.MOD_ID)
     public static class ForgeEvents {
         @SubscribeEvent
@@ -56,6 +57,13 @@ public class BeachpartyEvents {
         trades.put(3, new ArrayList<>());
         trades.put(4, new ArrayList<>());
         trades.put(5, new ArrayList<>());
+    }
 
+    @SubscribeEvent
+    public static void onBlockRightClick(PlayerInteractEvent.RightClickBlock event) {
+        BlockState state = event.getLevel().getBlockState(event.getPos());
+        if (state.getBlock() == ObjectRegistry.RADIO.get()) {
+            event.setCanceled(true);
+        }
     }
 }

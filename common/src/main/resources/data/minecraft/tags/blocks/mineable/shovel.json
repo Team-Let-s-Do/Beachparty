@@ -2,8 +2,6 @@
   "replace": false,
   "values": [
     "beachparty:sandwaves",
-    "beachparty:sand_seastars",
-    "beachparty:sand_dirty",
-    "beachparty:sand_slab"
+    "beachparty:sand_seastars"
   ]
 }

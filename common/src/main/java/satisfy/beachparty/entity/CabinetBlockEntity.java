@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.jetbrains.annotations.NotNull;
-import satisfy.beachparty.block.CabinetBlock;
+import satisfy.beachparty.block.StorageBlock;
 import satisfy.beachparty.registry.BlockEntityRegistry;
 
 public class CabinetBlockEntity extends RandomizableContainerBlockEntity {
@@ -121,7 +121,7 @@ public class CabinetBlockEntity extends RandomizableContainerBlockEntity {
     }
 
     public void setOpen(BlockState state, boolean open) {
-        if(state.getBlock() instanceof CabinetBlock rack) {
+        if(state.getBlock() instanceof StorageBlock rack) {
             assert level != null;
             rack.playSound(level, this.getBlockPos(), open);
         }

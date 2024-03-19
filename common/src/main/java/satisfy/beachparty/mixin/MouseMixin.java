@@ -9,6 +9,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import org.spongepowered.asm.mixin.Unique;
 import satisfy.beachparty.block.RadioBlock;
 import satisfy.beachparty.networking.BeachpartyMessages;
 import satisfy.beachparty.registry.ObjectRegistry;
@@ -34,18 +35,20 @@ public class MouseMixin {
                 BlockState blockState = client.level.getBlockState(blockPos);
                 if (blockState.getBlock() != ObjectRegistry.RADIO.get() || !blockState.getValue(RadioBlock.ON)) return;
 
-                int scrollValue = (int)calculateScrollValue(vertical, client.options);
-                handleScrollEvent(blockPos, scrollValue);
+                int scrollValue = (int) beachparty$calculateScrollValue(vertical, client.options);
+                beachparty$handleScrollEvent(blockPos, scrollValue);
                 ci.cancel();
             }
         }
     }
 
-    private double calculateScrollValue(double vertical, Options options) {
+    @Unique
+    private double beachparty$calculateScrollValue(double vertical, Options options) {
         return options.discreteMouseScroll().get() ? Math.signum(vertical) : vertical * options.mouseWheelSensitivity().get();
     }
 
-    private void handleScrollEvent(BlockPos blockPos, int scrollValue) {
+    @Unique
+    private void beachparty$handleScrollEvent(BlockPos blockPos, int scrollValue) {
         if (scrollValue == 0) {
             return;
         }

@@ -1,16 +1,20 @@
 package satisfy.beachparty.util;
 
 import com.google.gson.JsonArray;
+import dev.architectury.registry.client.rendering.ColorHandlerRegistry;
 import io.netty.buffer.Unpooled;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.Container;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -27,9 +31,15 @@ import java.util.List;
 import java.util.Optional;
 
 public class BeachpartyUtil {
-	
-	public static ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey(String name) {
-		return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(Beachparty.MOD_ID, name));
+	public static void registerColorArmor(Item item, int defaultColor) {
+		ColorHandlerRegistry.registerItemColors((stack, tintIndex) -> tintIndex > 0 ? -1 : getColor(stack, defaultColor), item);
+	}
+
+	private static int getColor(ItemStack itemStack, int defaultColor) {
+		CompoundTag displayTag = itemStack.getTagElement("display");
+		if (displayTag != null && displayTag.contains("color", Tag.TAG_ANY_NUMERIC))
+			return displayTag.getInt("color");
+		return defaultColor;
 	}
 	
 	public static boolean matchesRecipe(Container inventory, NonNullList<Ingredient> recipe, int startIndex, int endIndex) {
@@ -69,11 +79,7 @@ public class BeachpartyUtil {
 		}
 		return ingredients;
 	}
-	
-	public static boolean isIndexInRange(int index, int startInclusive, int endInclusive) {
-		return index >= startInclusive && index <= endInclusive;
-	}
-	
+
 	public static VoxelShape rotateShape(Direction from, Direction to, VoxelShape shape) {
 		VoxelShape[] buffer = new VoxelShape[] { shape, Shapes.empty() };
 		
@@ -87,33 +93,5 @@ public class BeachpartyUtil {
 			buffer[1] = Shapes.empty();
 		}
 		return buffer[0];
-	}
-	
-	public static Optional<Tuple<Float, Float>> getRelativeHitCoordinatesForBlockFace(BlockHitResult blockHitResult, Direction direction, Direction[] unAllowedDirections) {
-		Direction direction2 = blockHitResult.getDirection();
-		if (unAllowedDirections == null)
-			unAllowedDirections = new Direction[] { Direction.DOWN, Direction.UP };
-		if (Arrays.stream(unAllowedDirections).toList().contains(direction2))
-			return Optional.empty();
-		if (direction != direction2 && direction2 != Direction.UP && direction2 != Direction.DOWN) {
-			return Optional.empty();
-		} else {
-			BlockPos blockPos = blockHitResult.getBlockPos().relative(direction2);
-			Vec3 vec3 = blockHitResult.getLocation().subtract(blockPos.getX(), blockPos.getY(), blockPos.getZ());
-			float d = (float) vec3.x();
-			float f = (float) vec3.z();
-			
-			float y = (float) vec3.y();
-			
-			if (direction2 == Direction.UP || direction2 == Direction.DOWN)
-				direction2 = direction;
-			return switch (direction2) {
-				case NORTH -> Optional.of(new Tuple<>((float) (1.0 - d), y));
-				case SOUTH -> Optional.of(new Tuple<>(d, y));
-				case WEST -> Optional.of(new Tuple<>(f, y));
-				case EAST -> Optional.of(new Tuple<>((float) (1.0 - f), y));
-				case DOWN, UP -> Optional.empty();
-			};
-		}
 	}
 }

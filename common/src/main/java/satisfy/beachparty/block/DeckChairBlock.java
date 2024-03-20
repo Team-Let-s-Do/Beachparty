@@ -18,7 +18,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import satisfy.beachparty.util.BeachpartyUtil;
-import satisfyu.beachparty.block.BeachChairBlock;
 
 import java.util.HashMap;
 import java.util.Map;

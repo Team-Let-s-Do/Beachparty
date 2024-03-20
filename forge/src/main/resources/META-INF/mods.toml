@@ -1,15 +1,14 @@
 modLoader = "javafml"
 loaderVersion = "[46,)"
-#issueTrackerURL = ""
-license = "ARR"
+license = "Custom"
 
 [[mods]]
 modId = "beachparty"
 version = "${version}"
 displayName = "Beachparty"
-authors = "Me!"
+authors = "Satisfy"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Take a break - build sandcastles, drink cocktails and enjoy your life.
 '''
 logoFile = "pack.png"
 
@@ -37,6 +36,6 @@ side = "BOTH"
 [[dependencies.beachparty]]
 modId = "doapi"
 mandatory = true
-versionRange = "[1.2.3,)"
+versionRange = "[1.2.9,)"
 ordering = "AFTER"
 side = "BOTH"

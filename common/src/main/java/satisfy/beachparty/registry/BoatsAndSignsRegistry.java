@@ -12,7 +12,7 @@ import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Block;
 import satisfy.beachparty.BeachpartyIdentifier;
 
-public class TerraformRegistry {
+public class BoatsAndSignsRegistry {
 
     public static ResourceLocation PALM_BOAT_TYPE = new BeachpartyIdentifier("palm");
     public static ResourceLocation FLOATY_BOAT_TYPE = new BeachpartyIdentifier("floaty");
@@ -39,10 +39,5 @@ public class TerraformRegistry {
     public static void init() {
         DoApiExpectPlatform.registerBoatType(PALM_BOAT_TYPE, new TerraformBoatType.Builder().item(PALM_BOAT).chestItem(PALM_CHEST_BOAT).build());
         DoApiExpectPlatform.registerBoatType(FLOATY_BOAT_TYPE, new TerraformBoatType.Builder().item(FLOATY).chestItem(FLOATY_CHEST_BOAT).build());
-
     }
-
-
-
-
 }

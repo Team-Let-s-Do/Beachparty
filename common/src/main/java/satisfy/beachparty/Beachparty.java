@@ -16,7 +16,7 @@ public class Beachparty {
         ObjectRegistry.init();
         EntityRegistry.init();
         BlockEntityRegistry.init();
-        TerraformRegistry.init();
+        BoatsAndSignsRegistry.init();
         RecipeRegistry.init();
         SoundEventRegistry.init();
         ScreenHandlerTypesRegistry.init();

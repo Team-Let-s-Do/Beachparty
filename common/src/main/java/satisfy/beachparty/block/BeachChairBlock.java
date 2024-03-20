@@ -1,4 +1,4 @@
-package satisfyu.beachparty.block;
+package satisfy.beachparty.block;
 
 import de.cristelknight.doapi.common.util.ChairUtil;
 import net.minecraft.Util;

@@ -12,7 +12,6 @@ public class IceSlot extends Slot {
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        return stack.getItem() == Items.ICE || stack.getItem() == Items.SNOW_BLOCK || stack.getItem() == Items.MILK_BUCKET || stack.getItem() == Items.PACKED_ICE || stack.getItem() == Items.SNOWBALL || stack.getItem() == Items.WATER_BUCKET;
-    }
+        return stack.getItem() == Items.ICE || stack.getItem() == Items.SNOW_BLOCK || stack.getItem() == Items.MILK_BUCKET || stack.getItem() == Items.PACKED_ICE || stack.getItem() == Items.SNOWBALL || stack.getItem() == Items.WATER_BUCKET;    }
 }
 

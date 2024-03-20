@@ -24,9 +24,6 @@
     "doapi": [
       "satisfy.beachparty.util.api.BeachPartyDoAPI"
     ],
-    "fabric-datagen": [
-      "satisfy.beachparty.fabric.datagen.BeachpartyDataGeneration"
-    ],
     "rei_client": [
       "satisfy.beachparty.fabric.rei.BeachpartyREIClientPluginFabric"
     ],

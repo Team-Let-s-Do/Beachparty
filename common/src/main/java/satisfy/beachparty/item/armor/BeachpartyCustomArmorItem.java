@@ -10,7 +10,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import satisfy.beachparty.client.ClientUtil;
 import satisfy.beachparty.item.IBeachpartyArmorSet;
 import satisfy.beachparty.registry.ArmorRegistry;
 

@@ -15,6 +15,7 @@ import satisfy.beachparty.client.gui.MiniFridgeGui;
 import satisfy.beachparty.client.gui.TikiBarGui;
 import satisfy.beachparty.networking.BeachpartyMessages;
 import satisfy.beachparty.registry.*;
+import satisfy.beachparty.util.BeachpartyUtil;
 
 @Environment(EnvType.CLIENT)
 public class BeachPartyClient {
@@ -40,18 +41,18 @@ public class BeachPartyClient {
     }
 
     public static void preInitClient(){
-        TerraformSignHelper.regsterSignSprite(TerraformRegistry.PALM_SIGN_TEXTURE);
-        TerraformSignHelper.regsterSignSprite(TerraformRegistry.PALM_HANGING_SIGN_TEXTURE);
+        TerraformSignHelper.regsterSignSprite(BoatsAndSignsRegistry.PALM_SIGN_TEXTURE);
+        TerraformSignHelper.regsterSignSprite(BoatsAndSignsRegistry.PALM_HANGING_SIGN_TEXTURE);
 
         registerEntityEntityRenderers();
         registerEntityModelLayers();
     }
 
     private static void initColorItems() {
-        ClientUtil.registerColorArmor(ObjectRegistry.TRUNKS.get(), 16715535);
-        ClientUtil.registerColorArmor(ObjectRegistry.BIKINI.get(), 987135);
-        ClientUtil.registerColorArmor(ObjectRegistry.CROCS.get(), 1048335);
-        ClientUtil.registerColorArmor(ObjectRegistry.POOL_NOODLE.get(), 1017855);
+        BeachpartyUtil.registerColorArmor(ObjectRegistry.TRUNKS.get(), 16715535);
+        BeachpartyUtil.registerColorArmor(ObjectRegistry.BIKINI.get(), 987135);
+        BeachpartyUtil.registerColorArmor(ObjectRegistry.CROCS.get(), 1048335);
+        BeachpartyUtil.registerColorArmor(ObjectRegistry.POOL_NOODLE.get(), 1017855);
     }
 
     public static void registerEntityEntityRenderers(){

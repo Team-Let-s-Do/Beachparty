@@ -10,7 +10,6 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import satisfy.beachparty.BeachpartyIdentifier;
-import satisfy.beachparty.client.ClientUtil;
 import satisfy.beachparty.registry.ArmorMaterialRegistry;
 import satisfy.beachparty.registry.ArmorRegistry;
 

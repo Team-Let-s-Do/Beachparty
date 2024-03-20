@@ -14,6 +14,7 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.world.entity.Entity;
 import satisfy.beachparty.BeachpartyIdentifier;
 
+@SuppressWarnings("unused")
 public class BeachHatModel<T extends Entity> extends EntityModel<T> {
 
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BeachpartyIdentifier("beach_hat"), "main");

@@ -6,7 +6,7 @@ license = "Custom"
 modId = "beachparty"
 version = "${version}"
 displayName = "Beachparty"
-authors = "Satisfy"
+authors = "Satisfy, BaumeisterJo, Cristelknight"
 description = '''
 Take a break - build sandcastles, drink cocktails and enjoy your life.
 '''

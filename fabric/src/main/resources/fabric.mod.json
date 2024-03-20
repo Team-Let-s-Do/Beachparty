@@ -8,8 +8,8 @@
     "Satisfy", "BaumeisterJo", "Cristelknight"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/lets-do-beachparty",
+    "sources": "https://github.com/satisfyu/Beachparty"
   },
   "license": "ARR",
   "icon": "pack.png",
@@ -42,7 +42,6 @@
     }
   },
   "mixins": [
-    "beachparty.mixins.json",
     "beachparty-common.mixins.json"
   ],
   "depends": {

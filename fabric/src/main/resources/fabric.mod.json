@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "beachparty",
   "version": "${version}",
-  "name": "Beachparty",
+  "name": "[Let's Do] Beachparty",
   "description": "Take a break - build sandcastles, drink cocktails and enjoy your life.",
   "authors": [
     "Satisfy", "BaumeisterJo", "Cristelknight"

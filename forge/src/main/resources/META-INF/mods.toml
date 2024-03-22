@@ -5,7 +5,7 @@ license = "Custom"
 [[mods]]
 modId = "beachparty"
 version = "${version}"
-displayName = "Beachparty"
+displayName = "[Let's Do] Beachparty"
 authors = "Satisfy, BaumeisterJo, Cristelknight"
 description = '''
 Take a break - build sandcastles, drink cocktails and enjoy your life.
